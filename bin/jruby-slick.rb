@@ -1,8 +1,8 @@
+#!/usr/bin/env ruby
 require 'rubygems'
 require 'rake'
-require 'pry'
 
-#binding.pry
+gem_dir = Gem::Specification.find_by_name("jruby-slick").gem_dir
 
-Rake.application.rake_require "jruby-slick", File.expand_path("../jruby-slick/tasks", File.dirname(__FILE__))
+Rake.application.rake_require "jruby-slick", ["#{gem_dir}/jruby-slick/tasks"]
 Rake::Task['download_slick'].invoke
