@@ -29,7 +29,7 @@ task :setup_natives do
   target = RbConfig::CONFIG['target_os'].downcase
   platform = ''
   if target.index('mswin')
-    platform = 'win32'
+    platform = 'mingw'
   elsif target.index('darwin')
     platform = 'mac'
   elsif target.index('linux')
