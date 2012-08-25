@@ -22,5 +22,5 @@ class ExampleGame < StateBasedGame
 end
 
 app = AppGameContainer.new(ExampleGame.new)
-app.setDisplayMode(GunzABlazin.width, GunzABlazin.height, false)
+app.setDisplayMode(800, 600, false)
 app.start()

@@ -1,6 +1,6 @@
 Gem::Specification.new do |s|
   s.name = "jruby-slick"
-  s.version = "1.1b"
+  s.version = "1.0"
   s.platform = "ruby"
   s.authors = ["Aaron McLeod"]
   s.email = ["aaron.g.mcleod@gmail.com"]
