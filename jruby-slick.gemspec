@@ -12,5 +12,6 @@ Gem::Specification.new do |s|
   s.bindir = 'bin'
   s.executables = ['jruby-slick.rb']
   s.default_executable = 'jruby-slick.rb'
+  s.add_dependency 'rubyzip'
   s.add_development_dependency "rake"
 end
