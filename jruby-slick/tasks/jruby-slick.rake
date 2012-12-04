@@ -54,7 +54,7 @@ task :setup_natives do
         unless File.exists? target
           if platform.index("windows")
             if platform.index("64") && target.index("64")
-              entry.extract target
+              entry.extract target.gsub("64", "")
               puts "wrote file: #{target}"
             elsif platform.index("32") && target.index("64").nil?
               extry.extract target
