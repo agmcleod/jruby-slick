@@ -52,8 +52,18 @@ task :setup_natives do
       if entry.file? && /^lwjgl-2.8.5\/native\/#{platform[0]}/ =~ entry.name
         target = "bin/#{entry.name.split('/')[-1]}"
         unless File.exists? target
-          entry.extract target
-          puts "wrote file: #{target}"
+          if platform.index("windows")
+            if platform.index("64") && target.index("64")
+              entry.extract target
+              puts "wrote file: #{target}"
+            elsif platform.index("32") && target.index("64").nil?
+              extry.extract target
+              puts "wrote file: #{target}"
+            end
+          else
+            entry.extract target
+            puts "wrote file: #{target}"
+          end
         end
       elsif entry.file? && entry.name == "lwjgl-2.8.5/jar/lwjgl.jar" || entry.name == "lwjgl-2.8.5/jar/jinput.jar"
         target = "vendor/slick/#{entry.name.split('/')[-1]}"
