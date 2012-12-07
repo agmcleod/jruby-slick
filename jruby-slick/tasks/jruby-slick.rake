@@ -27,7 +27,7 @@ task :setup_natives do
     puts "Since you are using windows, please specify whether you are using 32 or 64 bit (32/64)"
     bit = ''
     until valid
-      bit = gets.chomp
+      bit = $stdin.gets.chomp
       valid = /^(32|64)$/ =~ bit
       puts "Please enter 32 or 64" if !valid
     end
