@@ -14,6 +14,11 @@ Install the slick dependencies into a vendor/ directory:
 
     jruby-slick.rb install
 
+This will download the dependencies required. To run the example file, simply run it:
+
+    cd bin
+    jruby example.rb
+
 
 **Generate an example gamestate**
 Creates the file lib/example_game_state.rb, with ExampleGameState class
