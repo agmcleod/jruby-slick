@@ -18,8 +18,8 @@ Install the slick dependencies into a vendor/ directory:
 **Generate an example gamestate**
 Creates the file lib/example_game_state.rb, with ExampleGameState class
 
-    jruby-slick.rb generate
+    jruby-slick.rb gamestate
 
 Creates the file lib/play_game_state.rb, with PlayGameState class
 
-    jruby-slick.rb generate play
+    jruby-slick.rb gamestate play
