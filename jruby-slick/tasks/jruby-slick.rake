@@ -23,15 +23,7 @@ task :setup_natives do
   platform = []
   if target.index('mswin')
     platform << 'windows'
-    valid = false
-    puts "Since you are using windows, please specify whether you are using 32 or 64 bit (32/64)"
-    bit = ''
-    until valid
-      bit = $stdin.gets.chomp
-      valid = /^(32|64)$/ =~ bit
-      puts "Please enter 32 or 64" if !valid
-    end
-    platform << bit
+    puts "Determined you are using windows"
   elsif target.index('darwin')
     platform << 'macosx'
     puts "Determined you are on OS X"
@@ -52,18 +44,8 @@ task :setup_natives do
       if entry.file? && /^lwjgl-2.8.5\/native\/#{platform[0]}/ =~ entry.name
         target = "bin/#{entry.name.split('/')[-1]}"
         unless File.exists? target
-          if platform.index("windows")
-            if platform.index("64") && target.index("64")
-              entry.extract target.gsub(/\_64|64/, "")
-              puts "wrote file: #{target}"
-            elsif platform.index("32") && target.index("64").nil?
-              extry.extract target
-              puts "wrote file: #{target}"
-            end
-          else
-            entry.extract target
-            puts "wrote file: #{target}"
-          end
+          entry.extract target
+          puts "wrote file: #{target}"
         end
       elsif entry.file? && entry.name == "lwjgl-2.8.5/jar/lwjgl.jar" || entry.name == "lwjgl-2.8.5/jar/jinput.jar"
         target = "vendor/slick/#{entry.name.split('/')[-1]}"
