@@ -32,6 +32,7 @@ task :setup_natives do
     puts "Determined you are on Linux"
   end
 
+  version = '2.9.0'
   puts "Downloading LWJGL"
   open("lwjgl.zip", "wb") do |f|
     f.print open("http://downloads.sourceforge.net/project/java-game-lib/Official%20Releases/LWJGL%202.9.0/lwjgl-2.9.0.zip?r=http%3A%2F%2Fsourceforge.net%2Fprojects%2Fjava-game-lib%2Ffiles%2FOfficial%2520Releases%2FLWJGL%25202.9.0%2F&ts=1366913882&use_mirror=superb-dca3").read
@@ -41,13 +42,13 @@ task :setup_natives do
 
   Zip::ZipFile.open("lwjgl.zip") do |natives|
     natives.each do |entry|
-      if entry.file? && /^lwjgl-2.8.5\/native\/#{platform[0]}/ =~ entry.name
+      if entry.file? && /^lwjgl-#{version}\/native\/#{platform[0]}/ =~ entry.name
         target = "bin/#{entry.name.split('/')[-1]}"
         unless File.exists? target
           entry.extract target
           puts "wrote file: #{target}"
         end
-      elsif entry.file? && entry.name == "lwjgl-2.8.5/jar/lwjgl.jar" || entry.name == "lwjgl-2.8.5/jar/jinput.jar"
+      elsif entry.file? && entry.name == "lwjgl-#{version}/jar/lwjgl.jar" || entry.name == "lwjgl-#{version}/jar/jinput.jar"
         target = "vendor/slick/#{entry.name.split('/')[-1]}"
         unless File.exists? target
           entry.extract target
