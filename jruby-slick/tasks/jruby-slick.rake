@@ -34,7 +34,7 @@ task :setup_natives do
 
   puts "Downloading LWJGL"
   open("lwjgl.zip", "wb") do |f|
-    f.print open("http://downloads.sourceforge.net/project/java-game-lib/Official%20Releases/LWJGL%202.8.5/lwjgl-2.8.5.zip?r=http%3A%2F%2Fsourceforge.net%2Fprojects%2Fjava-game-lib%2Ffiles%2FOfficial%2520Releases%2FLWJGL%25202.8.5%2F&ts=1354580536&use_mirror=iweb").read
+    f.print open("http://downloads.sourceforge.net/project/java-game-lib/Official%20Releases/LWJGL%202.9.0/lwjgl-2.9.0.zip?r=http%3A%2F%2Fsourceforge.net%2Fprojects%2Fjava-game-lib%2Ffiles%2FOfficial%2520Releases%2FLWJGL%25202.9.0%2F&ts=1366913882&use_mirror=superb-dca3").read
   end
 
   puts "Finished downloading LWJGL"
